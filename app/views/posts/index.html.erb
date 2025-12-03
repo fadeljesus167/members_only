@@ -1,0 +1,15 @@
+<h1>Posts List</h1>
+
+<% if user_signed_in? %>
+    <%= link_to 'New Post', new_post_path %>
+<% end %>
+
+<section>
+    <% @posts.each do |post| %>
+        <div>
+            <h3><%= post.title %></h3>
+            <p><%= post.body %></p>
+            <span>By: <%= post.user.username if user_signed_in? %></span>
+        </div>
+    <% end %>
+</section>
